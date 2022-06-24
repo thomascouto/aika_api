@@ -1,8 +1,8 @@
-package com.aika.backend.api.model.equipmentmodel;
+package com.aika.backend.api.equipmentmodel;
 
 import java.util.UUID;
 import javax.persistence.Entity;
-import com.aika.backend.api.model.base.BaseClass;
+import com.aika.backend.api.base.BaseClass;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;

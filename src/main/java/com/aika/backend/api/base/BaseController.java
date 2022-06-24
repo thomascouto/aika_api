@@ -1,4 +1,4 @@
-package com.aika.backend.api.model.base;
+package com.aika.backend.api.base;
 
 import java.util.ArrayList;
 import java.util.List;
