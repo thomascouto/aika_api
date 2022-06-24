@@ -54,7 +54,7 @@ public abstract class BaseController<T extends BaseClass, U extends JpaRepositor
             Optional<T> em = repository.findById(id);
             if (em.isPresent())
                 return new ResponseEntity<T>(em.get(), HttpStatus.OK);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
