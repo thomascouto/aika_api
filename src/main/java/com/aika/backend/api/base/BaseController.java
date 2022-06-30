@@ -71,6 +71,16 @@ public abstract class BaseController<T extends BaseClass, U extends JpaRepositor
     }
 
     @PutMapping("/{id}")
-    protected abstract ResponseEntity<T> updateEntity(@PathVariable("id") UUID id,
-            @RequestBody T updateEm);
+    protected ResponseEntity<T> updateEntity(@PathVariable("id") UUID id,
+            @RequestBody T updateEntity) {
+        try {
+            Optional<T> entity = repository.findById(id);
+            if (entity.isPresent() && entity.get().getId().equals(updateEntity.getId()))
+                return new ResponseEntity<T>(repository.save(updateEntity), HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
